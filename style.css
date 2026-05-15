@@ -9,7 +9,12 @@
     flex-direction: column;
 }
 
-.numberColumn {
+.numberRow {
+    display: flex;
+    flex-direction: row;
+}
+
+.clearRow {
     display: flex;
     flex-direction: row;
 }
