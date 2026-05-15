@@ -9,8 +9,16 @@ let substract = function (a, b) { return a - b};
 let multiply = function (a, b) { return a * b};
 let divide = function (a, b) { return a / b};
 
-
+/*
 console.log("3 + 5 = " + add(3, 5));
 console.log("3 - 5 = " + substract(3, 5));
 console.log("3 * 5 = " + multiply(3, 5));
 console.log("3 / 5 = " + divide(3, 5));
+*/ 
+
+let operate = function (num1, operation, num2) {
+
+    return  operation(num1, num2)
+}
+
+console.log(operate(3, add, 6))
