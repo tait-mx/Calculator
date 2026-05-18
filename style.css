@@ -13,6 +13,10 @@
     display: flex;
     flex-direction: row;
 }
+.lastRow {
+    display: flex;
+    flex-direction: row;
+}
 
 .clearRow {
     display: flex;
