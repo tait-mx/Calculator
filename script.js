@@ -77,9 +77,24 @@ but9.addEventListener("click", () => {
     display.value = actualNum;
 });
 
-const butMul = document.querySelector("#but9");
-but9.addEventListener("click", () => {
+const butMul = document.querySelector("#mul");
+butMul.addEventListener("click", () => {
     actualNum = "*";
+    display.value = actualNum;
+});
+const butDiv = document.querySelector("#div");
+butDiv.addEventListener("click", () => {
+    actualNum = "/";
+    display.value = actualNum;
+});
+const butAdd = document.querySelector("#add");
+butAdd.addEventListener("click", () => {
+    actualNum = "+";
+    display.value = actualNum;
+});
+const butSub = document.querySelector("#sub");
+butSub.addEventListener("click", () => {
+    actualNum = "-";
     display.value = actualNum;
 });
 
