@@ -12,6 +12,9 @@ let add = function (a, b) { return a + b};
 let substract = function (a, b) { return a - b};
 let multiply = function (a, b) { return a * b};
 let divide = function (a, b) { return a / b};
+let sqrt = function (a) { return Math.sqrt(a)};
+let percent = function (a, b) { return a * (b / 100)};
+
 let equal = function (n1, operator, n2) { return operator(n1, n2)};
 let operate = function (num1, operation, num2) {
     return  operation(num1, num2)
@@ -27,7 +30,7 @@ const but0 = document.querySelector("#but0");
 but0.addEventListener("click", () => {
     previousNum = actualNum ;
     actualNum = previousNum + "0";
-    display.value = actualNum;
+    display.value = Number(actualNum);
 });
 const but1 = document.querySelector("#but1");
 but1.addEventListener("click", () => {
@@ -115,6 +118,21 @@ butSub.addEventListener("click", () => {
     previousNum = 0;
     opFunc = substract;
 });
+const butSqrt = document.querySelector("#root");
+butSqrt.addEventListener("click", () => {
+    firstNum = actualNum;
+    actualNum = 0;
+    previousNum = 0;
+    display.value = (sqrt(firstNum));
+});
+const butPercent = document.querySelector("#percent");
+butPercent.addEventListener("click", () => {
+    firstNum = actualNum;
+    actualNum = 0;
+    previousNum = 0;
+    opFunc = percent;
+});
+
 const butEqual = document.querySelector("#equal");
 butEqual.addEventListener("click", () => {
     secondNum = actualNum;
