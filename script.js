@@ -1,10 +1,14 @@
+// Calculator project   
+
+console.log("Calculator project begins!")
+
+// Variables    
+
 let actualNum = 0;
 let previousNum = 0;
 let operation;
 let firstNum;
 let secondNum;
-
-console.log("Calculator project begins!")
 
 // Principal operation functions
 
@@ -87,9 +91,22 @@ but9.addEventListener("click", () => {
     display.value = Number(actualNum);
 });
 
-
 // Operation buttons
 
+const butSqrt = document.querySelector("#root");
+butSqrt.addEventListener("click", () => {
+    firstNum = actualNum;
+    actualNum = 0;
+    previousNum = 0;
+    display.value = (sqrt(firstNum));
+});
+const butPercent = document.querySelector("#percent");
+butPercent.addEventListener("click", () => {
+    firstNum = actualNum;
+    actualNum = 0;
+    previousNum = 0;
+    opFunc = percent;
+});
 const butMul = document.querySelector("#mul");
 butMul.addEventListener("click", () => {
     firstNum = actualNum;
@@ -118,20 +135,8 @@ butSub.addEventListener("click", () => {
     previousNum = 0;
     opFunc = substract;
 });
-const butSqrt = document.querySelector("#root");
-butSqrt.addEventListener("click", () => {
-    firstNum = actualNum;
-    actualNum = 0;
-    previousNum = 0;
-    display.value = (sqrt(firstNum));
-});
-const butPercent = document.querySelector("#percent");
-butPercent.addEventListener("click", () => {
-    firstNum = actualNum;
-    actualNum = 0;
-    previousNum = 0;
-    opFunc = percent;
-});
+
+// Equal and clear buttons  
 
 const butEqual = document.querySelector("#equal");
 butEqual.addEventListener("click", () => {
