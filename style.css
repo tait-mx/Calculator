@@ -4,6 +4,13 @@
     flex-direction: column;
 }
 
+input {
+    margin: 4px;
+    width: 176px;
+    height: 40px;
+    text-align: right;
+}
+
 .numberContainer {
     display: flex;
     flex-direction: column;
@@ -21,13 +28,6 @@
 .clearRow {
     display: flex;
     flex-direction: row;
-}
-
-input {
-    margin: 4px;
-    width: 128px;
-    height: 40px;
-    text-align: right;
 }
 
 button {
