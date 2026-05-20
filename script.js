@@ -1,4 +1,6 @@
 let actualNum;
+let previousNum = null;
+let operation = null;
 
 console.log("Calculator project begins!")
 
@@ -8,6 +10,7 @@ let add = function (a, b) { return a + b};
 let substract = function (a, b) { return a - b};
 let multiply = function (a, b) { return a * b};
 let divide = function (a, b) { return a / b};
+let equal = function (n1, operator, n2) { return operator(n1, n2)};
 
 /*
 console.log("3 + 5 = " + add(3, 5));
@@ -36,13 +39,21 @@ but1.addEventListener("click", () => {
     actualNum = 1;
     display.value = actualNum;
 });
+
 const but2 = document.querySelector("#but2");
 but2.addEventListener("click", () => {
-    actualNum = 2;
+    if(operation != null) {
+     previousNum = actualNum;
+    } else {
+    previousNum = actualNum;
+    actualNum = +previousNum + "2";
     display.value = actualNum;
+};
 });
+
 const but3 = document.querySelector("#but3");
 but3.addEventListener("click", () => {
+    previousNum = actualNum;
     actualNum = 3;
     display.value = actualNum;
 });
@@ -94,8 +105,14 @@ butAdd.addEventListener("click", () => {
 });
 const butSub = document.querySelector("#sub");
 butSub.addEventListener("click", () => {
-    actualNum = "-";
-    display.value = actualNum;
+    previousNum = actualNum;
+    operation = "-";
+    opFunc = substract;
+    display.value = actualNum + operation;
 });
 
-console.log(display.textContent)
+const butEqual = document.querySelector("#equal");
+butEqual.addEventListener("click", () => {
+   console.log(equal(previousNum, opFunc, actualNum));
+    
+});
