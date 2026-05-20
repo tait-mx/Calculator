@@ -15,7 +15,7 @@ let divide = function (a, b) { return a / b};
 let sqrt = function (a) { return Math.sqrt(a)};
 let percent = function (a, b) { return a * (b / 100)};
 
-let equal = function (n1, operator, n2) { return operator(n1, n2)};
+let equal = function (n1, operator, n2) { return Math.round(operator(n1, n2) * 1000000) / 1000000};
 let operate = function (num1, operation, num2) {
     return  operation(num1, num2)
 }
