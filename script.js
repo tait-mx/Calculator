@@ -42,6 +42,12 @@ but1.addEventListener("click", () => {
 
 const but2 = document.querySelector("#but2");
 but2.addEventListener("click", () => {
+    actualNum = 2;
+    display.value = actualNum;
+});
+/*
+const but2 = document.querySelector("#but2");
+but2.addEventListener("click", () => {
     if(operation != null) {
      previousNum = actualNum;
     } else {
@@ -50,6 +56,7 @@ but2.addEventListener("click", () => {
     display.value = actualNum;
 };
 });
+*/
 
 const but3 = document.querySelector("#but3");
 but3.addEventListener("click", () => {
@@ -114,5 +121,6 @@ butSub.addEventListener("click", () => {
 const butEqual = document.querySelector("#equal");
 butEqual.addEventListener("click", () => {
    console.log(equal(previousNum, opFunc, actualNum));
+   display.value = equal(previousNum, opFunc, actualNum);
     
 });
