@@ -1,6 +1,8 @@
 let actualNum = 0;
 let previousNum = 0;
 let operation;
+let firstNum;
+let secondNum;
 
 console.log("Calculator project begins!")
 
@@ -109,17 +111,18 @@ butAdd.addEventListener("click", () => {
 });
 const butSub = document.querySelector("#sub");
 butSub.addEventListener("click", () => {
-    previousNum = actualNum;
-    operation = " -";
+    firstNum = actualNum;
+    actualNum = 0;
+    previousNum = 0;
     opFunc = substract;
-    display.value = display.value + " - ";
 });
 
 const butEqual = document.querySelector("#equal");
 butEqual.addEventListener("click", () => {
-   console.log(equal(previousNum, opFunc, actualNum));
-   display.value = equal(previousNum, opFunc, actualNum);
-    operarion = null;
+    secondNum = actualNum;
+    actualNum = 0;
+    previousNum = 0;
+   display.value = equal(firstNum, opFunc, secondNum);
 });
 
 const butClear = document.querySelector("#clear");
