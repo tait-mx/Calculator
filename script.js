@@ -9,6 +9,7 @@ let previousNum = 0;
 let operation;
 let firstNum;
 let secondNum;
+let opFunc = null;
 
 // Principal operation functions
 
@@ -33,65 +34,81 @@ let display = document.querySelector("input");
 const but0 = document.querySelector("#but0");
 but0.addEventListener("click", () => {
     previousNum = actualNum ;
-    actualNum = previousNum + "0";
-    display.value = Number(actualNum);
+    actualNum = Number(previousNum + "0");
+    display.value = actualNum;
 });
 const but1 = document.querySelector("#but1");
 but1.addEventListener("click", () => {
     previousNum = actualNum ;
-    actualNum = previousNum + "1";
-    display.value = Number(actualNum);
+    actualNum = Number(previousNum + "1");
+    display.value = actualNum;
 });
 const but2 = document.querySelector("#but2");
 but2.addEventListener("click", () => {
     previousNum = Number(actualNum) ;
-    actualNum = previousNum + "2";
-    display.value = Number(actualNum);
+    actualNum = Number(previousNum + "2");
+    display.value = actualNum;
 });
 const but3 = document.querySelector("#but3");
 but3.addEventListener("click", () => {
     previousNum = Number(actualNum) ;
-    actualNum = previousNum + "3";
-    display.value = Number(actualNum);
+    actualNum = Number(previousNum + "3");
+    display.value = actualNum;
 });
 const but4 = document.querySelector("#but4");
 but4.addEventListener("click", () => {
     previousNum = Number(actualNum) ;
-    actualNum = previousNum + "4";
-    display.value = Number(actualNum);
+    actualNum = Number(previousNum + "4");
+    display.value = actualNum;
 });
 const but5 = document.querySelector("#but5");
 but5.addEventListener("click", () => {
     previousNum = Number(actualNum) ;
-    actualNum = previousNum + "5";
-    display.value = Number(actualNum);
+    actualNum = Number(previousNum + "5");
+    display.value = actualNum;
 });
 const but6 = document.querySelector("#but6");
 but6.addEventListener("click", () => {
     previousNum = Number(actualNum) ;
-    actualNum = previousNum + "6";
-    display.value = Number(actualNum);
+    actualNum = Number(previousNum + "6");
+    display.value = actualNum;
 });
 const but7 = document.querySelector("#but7");
 but7.addEventListener("click", () => {
     previousNum = Number(actualNum) ;
-    actualNum = previousNum + "7";
-    display.value = Number(actualNum);
+    actualNum = Number(previousNum + "7");
+    display.value = actualNum;
 });
 const but8 = document.querySelector("#but8");
 but8.addEventListener("click", () => {
     previousNum = Number(actualNum) ;
-    actualNum = previousNum + "8";
-    display.value = Number(actualNum);
+    actualNum = Number(previousNum + "8");
+    display.value = actualNum;
 });
 const but9 = document.querySelector("#but9");
 but9.addEventListener("click", () => {
     previousNum = Number(actualNum) ;
-    actualNum = previousNum + "9";
-    display.value = Number(actualNum);
+    actualNum = Number(previousNum + "9");
+    display.value = actualNum;
 });
 
 // Operation buttons
+
+const butAdd = document.querySelector("#add");
+butAdd.addEventListener("click", () => {
+    if(opFunc != null) {
+        secondNum = Number(actualNum);
+        display.value = equal(Number(firstNum), opFunc, Number(secondNum));
+        firstNum = equal(Number(firstNum), opFunc, Number(secondNum));
+        actualNum = 0;
+        previousNum = 0;
+        opFunc = add;
+    };
+    firstNum = actualNum;
+    actualNum = 0;
+    previousNum = 0;
+    opFunc = add;
+});
 
 const butSqrt = document.querySelector("#root");
 butSqrt.addEventListener("click", () => {
@@ -121,13 +138,6 @@ butDiv.addEventListener("click", () => {
     previousNum = 0;
     opFunc = divide;
 });
-const butAdd = document.querySelector("#add");
-butAdd.addEventListener("click", () => {
-    firstNum = actualNum;
-    actualNum = 0;
-    previousNum = 0;
-    opFunc = add;
-});
 const butSub = document.querySelector("#sub");
 butSub.addEventListener("click", () => {
     firstNum = actualNum;
@@ -141,15 +151,17 @@ butSub.addEventListener("click", () => {
 const butEqual = document.querySelector("#equal");
 butEqual.addEventListener("click", () => {
     secondNum = actualNum;
-    actualNum = 0;
+    //actualNum = 0;
     previousNum = 0;
-   display.value = equal(Number(firstNum), opFunc, Number(secondNum));
+   display.value = actualNum = equal(Number(firstNum), opFunc, Number(secondNum));  
+    opFunc = null;   
 });
 
 const butClear = document.querySelector("#clear");
 butClear.addEventListener("click", () => {
     actualNum = 0;
     previousNum = 0;
-    display.value = actualNum;      
+    display.value = actualNum;   
+    opFunc = null;   
 });
 
