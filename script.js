@@ -31,6 +31,10 @@ let display = document.querySelector("input");
 
 // Number buttons
 
+
+const sortedNumButtons = [...document.querySelectorAll(".numButton")].sort((a, b) => a.textContent.localeCompare(b.textContent));
+console.log(sortedNumButtons);
+
 const but0 = document.querySelector("#but0");
 but0.addEventListener("click", () => {
     previousNum = actualNum ;

@@ -24,6 +24,7 @@ input {
     display: flex;
     flex-direction: row;
 }
+
 .lastRow {
     display: flex;
     flex-direction: row;
