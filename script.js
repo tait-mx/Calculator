@@ -10,6 +10,7 @@ let operation = null;
 let firstNum = 0;
 let secondNum = 0;
 let opFunc = null;
+let wasPressed = true;
 
 // Principal operation functions
 
@@ -35,15 +36,17 @@ const sortedNumButtons = [...document.querySelectorAll(".numButton")].sort((a, b
 
 sortedNumButtons.forEach((btn, i) => {
     btn.addEventListener("click", () => {
-        if(opFunc == null) {
+        
+        if(opFunc == null && wasPressed) {
             actualNum = Number(String(i));  // i = 0 → button 1, i = 1 → button 2, ...
             display.value = actualNum;
-        } else {
+        } else {         
         previousNum = actualNum;
         actualNum = Number(previousNum + String(i));  // i = 0 → button 1, i = 1 → button 2, ...
-        display.value = actualNum;
-
-        }
+        display.value = actualNum;    
+     };
+     
+    wasPressed = false;
     });
 });
 
@@ -117,4 +120,5 @@ butEqual.addEventListener("click", () => {
    display.value = actualNum = equal(Number(firstNum), opFunc, Number(secondNum));  
     opFunc = null;   
     }
-});
+    wasPressed = true;
+})
