@@ -31,69 +31,14 @@ let display = document.querySelector("input");
 
 // Number buttons
 
-
 const sortedNumButtons = [...document.querySelectorAll(".numButton")].sort((a, b) => a.textContent.localeCompare(b.textContent));
-console.log(sortedNumButtons);
 
-const but0 = document.querySelector("#but0");
-but0.addEventListener("click", () => {
-    previousNum = actualNum ;
-    actualNum = Number(previousNum + "0");
-    display.value = actualNum;
-});
-const but1 = document.querySelector("#but1");
-but1.addEventListener("click", () => {
-    previousNum = actualNum ;
-    actualNum = Number(previousNum + "1");
-    display.value = actualNum;
-});
-const but2 = document.querySelector("#but2");
-but2.addEventListener("click", () => {
-    previousNum = Number(actualNum) ;
-    actualNum = Number(previousNum + "2");
-    display.value = actualNum;
-});
-const but3 = document.querySelector("#but3");
-but3.addEventListener("click", () => {
-    previousNum = Number(actualNum) ;
-    actualNum = Number(previousNum + "3");
-    display.value = actualNum;
-});
-const but4 = document.querySelector("#but4");
-but4.addEventListener("click", () => {
-    previousNum = Number(actualNum) ;
-    actualNum = Number(previousNum + "4");
-    display.value = actualNum;
-});
-const but5 = document.querySelector("#but5");
-but5.addEventListener("click", () => {
-    previousNum = Number(actualNum) ;
-    actualNum = Number(previousNum + "5");
-    display.value = actualNum;
-});
-const but6 = document.querySelector("#but6");
-but6.addEventListener("click", () => {
-    previousNum = Number(actualNum) ;
-    actualNum = Number(previousNum + "6");
-    display.value = actualNum;
-});
-const but7 = document.querySelector("#but7");
-but7.addEventListener("click", () => {
-    previousNum = Number(actualNum) ;
-    actualNum = Number(previousNum + "7");
-    display.value = actualNum;
-});
-const but8 = document.querySelector("#but8");
-but8.addEventListener("click", () => {
-    previousNum = Number(actualNum) ;
-    actualNum = Number(previousNum + "8");
-    display.value = actualNum;
-});
-const but9 = document.querySelector("#but9");
-but9.addEventListener("click", () => {
-    previousNum = Number(actualNum) ;
-    actualNum = Number(previousNum + "9");
-    display.value = actualNum;
+sortedNumButtons.forEach((btn, i) => {
+    btn.addEventListener("click", () => {
+        previousNum = actualNum;
+        actualNum = Number(previousNum + String(i));  // i = 0 → button 1, i = 1 → button 2, ...
+        display.value = actualNum;
+    });
 });
 
 // Operation buttons
@@ -159,9 +104,11 @@ butClear.addEventListener("click", () => {
 
 const butEqual = document.querySelector("#equal");
 butEqual.addEventListener("click", () => {
+    if(opFunc != null) {
     secondNum = actualNum;
     //actualNum = 0;
     previousNum = 0;
    display.value = actualNum = equal(Number(firstNum), opFunc, Number(secondNum));  
     opFunc = null;   
+    }
 });
