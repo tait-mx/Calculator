@@ -6,9 +6,9 @@ console.log("Calculator project begins!")
 
 let actualNum = 0;
 let previousNum = 0;
-let operation;
-let firstNum;
-let secondNum;
+let operation = null;
+let firstNum = 0;
+let secondNum = 0;
 let opFunc = null;
 
 // Principal operation functions
@@ -35,9 +35,15 @@ const sortedNumButtons = [...document.querySelectorAll(".numButton")].sort((a, b
 
 sortedNumButtons.forEach((btn, i) => {
     btn.addEventListener("click", () => {
+        if(opFunc == null) {
+            actualNum = Number(String(i));  // i = 0 → button 1, i = 1 → button 2, ...
+            display.value = actualNum;
+        } else {
         previousNum = actualNum;
         actualNum = Number(previousNum + String(i));  // i = 0 → button 1, i = 1 → button 2, ...
         display.value = actualNum;
+
+        }
     });
 });
 
