@@ -32,7 +32,9 @@ let display = document.querySelector("input");
 
 // Number buttons
 
-const sortedNumButtons = [...document.querySelectorAll(".numButton")].sort((a, b) => a.textContent.localeCompare(b.textContent));
+const sortedNumButtons = [...document.querySelectorAll(".numButton")]
+.sort((a, b) => a.textContent.localeCompare(b.textContent));
+
 
 sortedNumButtons.forEach((btn, i) => {
     btn.addEventListener("click", () => {
@@ -44,11 +46,27 @@ sortedNumButtons.forEach((btn, i) => {
         previousNum = actualNum;
         actualNum = Number(previousNum + String(i));  // i = 0 → button 1, i = 1 → button 2, ...
         display.value = actualNum;    
-     };
-     
+     };   
     wasPressed = false;
     });
 });
+
+
+const pointBut = document.querySelector("#point");
+    pointBut.addEventListener("click", () => {
+        
+        if(opFunc == null && wasPressed) {
+            actualNum = ".";  // i = 0 → button 1, i = 1 → button 2, ...
+            display.value = actualNum;
+        } else {         
+            
+        previousNum = actualNum;
+        actualNum = previousNum + ".";  // i = 0 → button 1, i = 1 → button 2, ...
+        display.value = actualNum;    
+     };   
+    wasPressed = false;
+    });
+
 
 // Operation buttons
 
