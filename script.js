@@ -31,17 +31,22 @@ let operate = function (num1, operation, num2) {
 
 let display = document.querySelector("input");
 
-// Number buttons
+// Backspace button
 
 const butBkSpace = document.querySelector("#bkSpace");
 butBkSpace.textContent = "<";
+butBkSpace.addEventListener("click", () => {
+    actualNum = String(actualNum).substring(0, String(actualNum).length - 1);
+    display.value = actualNum;
+})
+
+// Number buttons
 
 const sortedNumButtons = [...document.querySelectorAll(".numButton")]
 .sort((a, b) => a.textContent.localeCompare(b.textContent));
 
 sortedNumButtons.forEach((btn, i) => {
-    btn.addEventListener("click", () => {
-        
+    btn.addEventListener("click", () => {       
         if(opFunc == null && wasPressed) {
             actualNum = Number(String(i));  // i = 0 → button 1, i = 1 → button 2, ...
             display.value = actualNum;
