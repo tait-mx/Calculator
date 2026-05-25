@@ -31,16 +31,12 @@ let operate = function (num1, operation, num2) {
 
 let display = document.querySelector("input");
 display.addEventListener("keydown", (char) => {
-    switch (char.key) {
-        case "1":      
-            console.log(char.key);   
-            sortedNumButtons[1].click();
-            break;
-        case "2":
-            console.log(char.key);          
-            sortedNumButtons[2].click();
-            break;
-
+    char.preventDefault();
+    for(let i = 0; i <= 9; i++) {
+        if (char.key == String(i)) {
+             console.log(char.key);   
+             sortedNumButtons[i].click();
+        }
     }
 });
 
