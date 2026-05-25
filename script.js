@@ -30,6 +30,19 @@ let operate = function (num1, operation, num2) {
 // Display
 
 let display = document.querySelector("input");
+display.addEventListener("keydown", (char) => {
+    switch (char.key) {
+        case "1":      
+            console.log(char.key);   
+            sortedNumButtons[1].click();
+            break;
+        case "2":
+            console.log(char.key);          
+            sortedNumButtons[2].click();
+            break;
+
+    }
+});
 
 // Backspace button
 
@@ -49,7 +62,7 @@ sortedNumButtons.forEach((btn, i) => {
     btn.addEventListener("click", () => {       
         if(opFunc == null && wasPressed) {
             actualNum = Number(String(i));  // i = 0 → button 1, i = 1 → button 2, ...
-            display.value = actualNum;
+           display.value = actualNum;
         } else {         
         previousNum = actualNum;
         actualNum = Number(previousNum + String(i));  // i = 0 → button 1, i = 1 → button 2, ...
