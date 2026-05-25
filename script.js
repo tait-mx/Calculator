@@ -31,12 +31,39 @@ let operate = function (num1, operation, num2) {
 
 let display = document.querySelector("input");
 display.addEventListener("keydown", (char) => {
+    console.log(char.key);
     char.preventDefault();
     for(let i = 0; i <= 9; i++) {
-        if (char.key == String(i)) {
-             console.log(char.key);   
+        if (char.key == String(i)) { 
              sortedNumButtons[i].click();
         }
+    };
+
+    switch (char.key) {
+        case "Backspace":
+            butBkSpace.click()
+            break; 
+        case "%":
+            butPercent.click()
+            break; 
+        case "*":
+            butMul.click()
+            break; 
+        case "/":
+            butDiv.click()
+            break; 
+        case "+":
+            butAdd.click()
+            break; 
+        case "-":
+            butSub.click()
+            break; 
+        case ".":
+            pointBut.click()
+            break; 
+        case "Enter":
+            butEqual.click()
+            break; 
     }
 });
 
@@ -79,6 +106,7 @@ butSqrt.addEventListener("click", () => {
     previousNum = 0;
     display.value = (sqrt(firstNum));
 });
+
 const butPercent = document.querySelector("#percent");
 butPercent.addEventListener("click", () => {
     butEqual.click();
